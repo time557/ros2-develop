@@ -16,7 +16,7 @@ ament_target_dependencies(talker rclcpp std_msgs)
 
 # listener node
 add_executable(listener src/subscriber_function.cpp)
-ament_target_dependencies(SignalProcessorr rclcpp std_msgs)
+ament_target_dependencies(listener rclcpp std_msgs)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
