@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(pub_sub_cmd)
+project(data_visual)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -10,13 +10,13 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 
-# talker node
-add_executable(talker src/publisher_function.cpp)
-ament_target_dependencies(talker rclcpp std_msgs)
+# signal_generator node
+add_executable(SignalPublisher src/pub_node.cpp)
+ament_target_dependencies(SignalPublisher rclcpp std_msgs)
 
-# listener node
-add_executable(listener src/subscriber_function.cpp)
-ament_target_dependencies(SignalProcessorr rclcpp std_msgs)
+# signal_processor node
+add_executable(SignalProcessor src/sub_node.cpp)
+ament_target_dependencies(SignalProcessor rclcpp std_msgs)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -31,8 +31,9 @@ if(BUILD_TESTING)
 endif()
 
 install(TARGETS
-  talker
-  listener
+  SignalPublisher
+  SignalProcessor
   DESTINATION lib/${PROJECT_NAME})
+
 
 ament_package()
