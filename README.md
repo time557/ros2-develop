@@ -2,6 +2,7 @@
 
 RoboMaster-南京理工大学Alliance战队2026赛季培训使用
 
+相关代码实现均在**ros2/src文件夹中**
 任务一：简单的消息接收发布与日志输出
 实现位置和功能包均在pub_sub_cmd文件中
 主要包含publisher_function.cpp和subscriber_function.cpp用于生成发布节点和订阅节点
